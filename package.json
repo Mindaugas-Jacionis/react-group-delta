@@ -11,6 +11,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "random": "echo 'Hello Random'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
