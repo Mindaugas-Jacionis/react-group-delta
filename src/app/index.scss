@@ -9,7 +9,6 @@
 
   h1 {
     font-size: 24px;
-    font-weight: 700;
   }
 
   &--contact {
@@ -38,5 +37,69 @@
   &--summary {
     width: 30em;
     margin-top: 20px;
+  }
+}
+
+main {
+  .Section {
+    display: flex;
+    min-height: 100px;
+    padding: 10px 0;
+
+    &--left {
+      flex: 2;
+      padding: 0 20px;
+      position: relative;
+
+      h3 {
+        font-style: italic;
+        text-align: right;
+      }
+
+      &:after {
+        content: '';
+        height: 100px;
+        width: 1px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #989595;
+      }
+    }
+
+    &--right {
+      padding: 0 20px;
+      flex: 9;
+
+      &-job-title {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+          font-size: 14px;
+          color: #989595;
+          opacity: 0.75;
+          font-style: italic;
+          padding-left: 25px;
+          line-height: 22px;
+        }
+      }
+
+      p span {
+        font-weight: 700;
+      }
+
+      div {
+        padding-bottom: 15px;
+
+        &:nth-last-child(1) {
+          padding-bottom: 0;
+        }
+      }
+
+      ul {
+        list-style: disc inside;
+      }
+    }
   }
 }
