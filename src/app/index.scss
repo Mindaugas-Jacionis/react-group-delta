@@ -103,3 +103,20 @@ main {
     }
   }
 }
+
+.Footer {
+  display: flex;
+  justify-content: center;
+  background: #498454;
+
+  svg {
+    padding: 10px;
+    font-size: 24px;
+    color: #e1e1e1;
+    transition: color 0.3s linear;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
