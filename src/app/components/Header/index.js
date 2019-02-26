@@ -1,34 +1,56 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 import data from './data';
 
-function Header() {
+function Header(props) {
+  const { language, onLanguage } = props;
+  const { contacts, picture, name, summary } = data[language];
+
+  console.log(onLanguage);
+
   return (
     <header className="Header">
-      <h1>{data.en.name}</h1>
+      <h1>{name}</h1>
       <hr />
       <p className="Header--contact">
-        {`${data.en.contacts.phone.label} ${data.en.contacts.phone.value}`}
+        {`${contacts.phone.label} ${contacts.phone.value}`}
       </p>
       <p className="Header--contact">
-        {`${data.en.contacts.email.label} `}
+        {`${contacts.email.label} `}
         <a
-          href={`mailto:${data.en.contacts.email.value}`}
+          href={`mailto:${contacts.email.value}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {data.en.contacts.email.value}
+          {contacts.email.value}
         </a>
       </p>
-      <p className="Header--summary">{data.en.summary}</p>
+      <p className="Header--summary">{summary}</p>
       <img
         className="Header--profile-picture"
-        alt={data.en.picture.alt}
-        src={data.en.picture.src}
+        alt={picture.alt}
+        src={picture.src}
       />
+      <select
+        onChange={e => onLanguage(e.target.value)}
+        className="Header--language-select"
+      >
+        <option value="en">English</option>
+        <option value="kr">한국어</option>
+      </select>
     </header>
   );
 }
+
+Header.propTypes = {
+  language: PropTypes.oneOf(['en', 'kr']),
+  onLanguage: PropTypes.func.isRequired,
+};
+
+Header.defaultProps = {
+  language: 'en',
+};
 
 export default Header;

@@ -1,32 +1,40 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 import data from './data';
 
-function Main() {
+function Main(props) {
+  const { language } = props;
+  const skills = data.skills[language];
+  const education = data.education[language];
+  const experience = data.experience[language];
+  const hobies = data.hobies[language];
+  const references = data.references[language];
+
   return (
     <main>
       <section className="Section">
         <div className="Section--left">
-          <h3>{data.education.en.label}</h3>
+          <h3>{education.label}</h3>
         </div>
         <div className="Section--right">
-          <h3>{data.education.en.school}</h3>
+          <h3>{education.school}</h3>
           <p>
-            <span>{`${data.education.en.major.label} `}</span>
-            {data.education.en.major.value}
+            <span>{`${education.major.label} `}</span>
+            {education.major.value}
           </p>
           <p>
-            <span>{`${data.education.en.minor.label} `}</span>
-            {data.education.en.minor.value}
+            <span>{`${education.minor.label} `}</span>
+            {education.minor.value}
           </p>
         </div>
       </section>
       <section className="Section">
         <div className="Section--left">
-          <h3>{data.skills.en.label}</h3>
+          <h3>{skills.label}</h3>
         </div>
         <div className="Section--right">
-          {data.skills.en.list.map(({ title, description }, index) => (
+          {skills.list.map(({ title, description }, index) => (
             <div key={index}>
               <h3>{title}</h3>
               <p>{description}</p>
@@ -36,10 +44,10 @@ function Main() {
       </section>
       <section className="Section">
         <div className="Section--left">
-          <h3>{data.experience.en.label}</h3>
+          <h3>{experience.label}</h3>
         </div>
         <div className="Section--right">
-          {data.experience.en.list.map(
+          {experience.list.map(
             ({ title, subtitle, responsibilities }, index) => (
               <div key={index}>
                 <div className="Section--right-job-title">
@@ -58,22 +66,30 @@ function Main() {
       </section>
       <section className="Section">
         <div className="Section--left">
-          <h3>{data.hobies.en.label}</h3>
+          <h3>{hobies.label}</h3>
         </div>
         <div className="Section--right">
-          <p>{data.hobies.en.summary}</p>
+          <p>{hobies.summary}</p>
         </div>
       </section>
       <section className="Section">
         <div className="Section--left">
-          <h3>{data.references.en.label}</h3>
+          <h3>{references.label}</h3>
         </div>
         <div className="Section--right">
-          <p>{data.references.en.summary}</p>
+          <p>{references.summary}</p>
         </div>
       </section>
     </main>
   );
 }
+
+Main.propTypes = {
+  language: PropTypes.oneOf(['en', 'kr']),
+};
+
+Main.defaultProps = {
+  language: 'en',
+};
 
 export default Main;
