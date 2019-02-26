@@ -7,26 +7,26 @@ function Main() {
     <main>
       <section className="Section">
         <div className="Section--left">
-          <h3>{data.education.label}</h3>
+          <h3>{data.education.en.label}</h3>
         </div>
         <div className="Section--right">
-          <h3>{data.education.school}</h3>
+          <h3>{data.education.en.school}</h3>
           <p>
-            <span>{`${data.education.major.label} `}</span>
-            {data.education.major.value}
+            <span>{`${data.education.en.major.label} `}</span>
+            {data.education.en.major.value}
           </p>
           <p>
-            <span>{`${data.education.minor.label} `}</span>
-            {data.education.minor.value}
+            <span>{`${data.education.en.minor.label} `}</span>
+            {data.education.en.minor.value}
           </p>
         </div>
       </section>
       <section className="Section">
         <div className="Section--left">
-          <h3>{data.skills.label}</h3>
+          <h3>{data.skills.en.label}</h3>
         </div>
         <div className="Section--right">
-          {data.skills.list.map(({ title, description }, index) => (
+          {data.skills.en.list.map(({ title, description }, index) => (
             <div key={index}>
               <h3>{title}</h3>
               <p>{description}</p>
@@ -36,10 +36,10 @@ function Main() {
       </section>
       <section className="Section">
         <div className="Section--left">
-          <h3>{data.experience.label}</h3>
+          <h3>{data.experience.en.label}</h3>
         </div>
         <div className="Section--right">
-          {data.experience.list.map(
+          {data.experience.en.list.map(
             ({ title, subtitle, responsibilities }, index) => (
               <div key={index}>
                 <div className="Section--right-job-title">
@@ -66,10 +66,10 @@ function Main() {
       </section>
       <section className="Section">
         <div className="Section--left">
-          <h3>{data.references.label}</h3>
+          <h3>{data.references.en.label}</h3>
         </div>
         <div className="Section--right">
-          <p>{data.references.summary}</p>
+          <p>{data.references.en.summary}</p>
         </div>
       </section>
     </main>

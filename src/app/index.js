@@ -11,7 +11,7 @@ function App() {
         <Main />
         <select className="App--language-select">
           <option>English</option>
-          <option>Korean</option>
+          <option>한국어</option>
         </select>
       </div>
       <Footer />
