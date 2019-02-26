@@ -1,32 +1,31 @@
 import React from 'react';
 import './index.scss';
 
+import data from './data';
+
 function Header() {
   return (
     <header className="Header">
-      <h1>John Snow</h1>
+      <h1>{data.name}</h1>
       <hr />
-      <p className="Header--contact">Phone: +37063339991</p>
       <p className="Header--contact">
-        Email:{' '}
+        {`${data.contacts.phone.label} ${data.contacts.phone.value}`}
+      </p>
+      <p className="Header--contact">
+        {`${data.contacts.email.label} `}
         <a
-          href="mailto:John@Snow.hbo"
+          href={`mailto:${data.contacts.email.value}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          John@Snow.hbo
+          {data.contacts.email.value}
         </a>
       </p>
-      <p className="Header--summary">
-        Wafer apple pie cheesecake tootsie roll sweet roll jelly-o liquorice
-        jujubes. Dessert carrot cake danish lollipop. Oat cake tart chupa chups
-        pie toffee donut. Liquorice brownie lollipop bonbon carrot cake candy
-        canes.
-      </p>
+      <p className="Header--summary">{data.summary}</p>
       <img
         className="Header--profile-picture"
-        alt="This is me"
-        src="https://media.licdn.com/dms/image/C4D03AQE4FlH9z1QruA/profile-displayphoto-shrink_200_200/0?e=1554336000&v=beta&t=gLOCgXaXN7ynK05-jwSotpEs1Qnz0giDsbGa4hT5Ms0"
+        alt={data.picture.alt}
+        src={data.picture.src}
       />
     </header>
   );
