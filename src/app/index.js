@@ -4,8 +4,8 @@ import { Header, Main, Footer } from './components';
 import './index.scss';
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       language: 'en',
     };
